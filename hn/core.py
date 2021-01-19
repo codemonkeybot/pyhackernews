@@ -1,7 +1,7 @@
 import os
 import urwid
 import subprocess
-import ConfigParser
+import configparser
 from hnapi import HN
 from datetime import datetime
 
@@ -41,7 +41,7 @@ def get_top_stories():
 
 def read_config():
     filename = 'pyhackernews'
-    config = ConfigParser.ConfigParser()
+    config = configparser.ConfigParser()
     if os.path.exists(os.path.expanduser('~' + '/.' + filename)):
         config.read(os.path.expanduser('~' + '/.' + filename))
     elif os.path.exists ( os.path.expanduser('~' + '/.config/' + filename)):
@@ -138,7 +138,7 @@ class UI(object):
         try:
             self.loop.run()
         except KeyboardInterrupt:
-            print "Keyboard interrupt received, quitting gracefully"
+            #print "Keyboard interrupt received, quitting gracefully"
             raise urwid.ExitMainLoop
 
     def make_screen(self):
